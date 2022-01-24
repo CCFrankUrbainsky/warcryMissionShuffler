@@ -2,8 +2,6 @@ import * as O from 'fp-ts/Option'
 import { AvailableDeckName } from '.'
 
 export type CardType = 'victory' | 'twist' | 'terrain' | 'deployment'
-export type CardPack = 'base' | 'catacombs' | 'redHarvest'
-export type TerrainCardPack = 'varanite mines' | 'souldrain forest' | 'eightpoints'
 export type CardUrl = string
 
 export type Card = {

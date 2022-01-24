@@ -6,6 +6,8 @@
   max-height: 420px;
   margin-bottom: 5vw;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  transform: scale(1,1);
+  transition: transform 0.2s;
 }
 
 /* This container is needed to position the front and back side */
@@ -19,6 +21,10 @@
   transform-origin: center;
 }
 
+.flip-card.shuffled .flip-card-inner{
+  transition: none;
+}
+
 .flip-card-inner img {
   width: 100%;
 }
@@ -26,6 +32,11 @@
 /* Do an horizontal flip when you move the mouse over the flip box container */
 .flip-card.flipped .flip-card-inner {
   transform: rotateX(180deg);
+}
+
+.flip-card.shuffled {
+  transform: scale(1.2,1.2);
+  transition: none
 }
 
 /* Position the front and back side */

@@ -16,6 +16,7 @@ function App() {
   const [selectedTerrainDecks, setSelectedTerrainDecks] = useState<AvailableDeckName[]>([])
   const [setupDone, setSetupDone] = useState<boolean>(false)
   const [showCards, setShowCards] = useState<boolean>(false)
+  const [shuffling, setShuffling] = useState<boolean>(false)
   const [errorMessage, setErrorMessage] = useState<boolean>(false)
   const [showAllCards, setShowAllCards] = useState<boolean>(false)
   const [selectedMainDeck, setSelectedMainDeck] = useState<Deck>()
@@ -93,6 +94,8 @@ function App() {
     }
 
     setShowCards(true)
+    setShuffling(true)
+    setTimeout(() => { setShuffling(false) }, 50)
   }
 
   const checkSetup = () => {
@@ -191,18 +194,18 @@ function App() {
           </h2>
           <Row>
             <Col xs={12} md>
-              <FlipCard front={terrainCard?.front || ''} back={terrainCard?.back || ''} />
+              <FlipCard front={terrainCard?.front || ''} back={terrainCard?.back || ''} shuffle={shuffling} />
             </Col>
             <Col xs={12} md>
-              <FlipCard front={deploymentCard?.front || ''} back={deploymentCard?.back || ''} />
+              <FlipCard front={deploymentCard?.front || ''} back={deploymentCard?.back || ''} shuffle={shuffling} />
             </Col>
           </Row>
           <Row>
             <Col xs={12} md>
-              <FlipCard front={victoryCard?.front || ''} back={victoryCard?.back || ''} />
+              <FlipCard front={victoryCard?.front || ''} back={victoryCard?.back || ''} shuffle={shuffling} />
             </Col>
             <Col xs={12} md>
-              <FlipCard front={twistCard?.front || ''} back={twistCard?.back || ''} />
+              <FlipCard front={twistCard?.front || ''} back={twistCard?.back || ''} shuffle={shuffling} />
             </Col>
           </Row>
           <Row>

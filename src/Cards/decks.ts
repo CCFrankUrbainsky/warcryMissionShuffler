@@ -1,6 +1,4 @@
-import { Card, Deck, deckConfig } from '.'
-import { SubDeckConfig } from './configs'
-import { CardType } from './types'
+import { Card, Deck, deckConfig, CardType, SubDeckConfig} from '.'
 import * as O from 'fp-ts/Option'
 
 export const getAvailableDecks = () : Deck[] => {
@@ -13,7 +11,7 @@ export const getAvailableDecks = () : Deck[] => {
       victory: O.none,
       twist: O.none
     }
-    if ( config.deployment && config.victory && config.twist){
+    if ( config.deployment && config.victory && config.twist ){
       deck.deployment = O.some(fillSubdeck(config.deployment, 'deployment'))
       deck.victory = O.some(fillSubdeck(config.victory, 'victory'))
       deck.twist = O.some(fillSubdeck(config.twist, 'twist'))
