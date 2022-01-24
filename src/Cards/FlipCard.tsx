@@ -16,7 +16,6 @@ export const FlipCard = ({ front, back, className, shuffle }: CardParams) => {
   }
 
   useEffect(() => {
-    console.log('trying to hide card..', shuffle, flipped)
     if (shuffle && flipped) {
       setFlipped(false)
     }
