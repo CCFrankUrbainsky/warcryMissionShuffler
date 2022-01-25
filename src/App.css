@@ -48,6 +48,22 @@
   backface-visibility: hidden;
 }
 
+.flip-card .shuffle-button {
+  position: absolute;
+  top: 0em;
+  right: 0.3em;
+  border-radius: 50%;
+  width: 2.5em;
+    height: 2.5em;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid gray;
+  cursor: pointer;
+  filter: grayscale();
+  font-size: 1.8rem;
+  padding-top: 0.5em;
+  padding-left: 0.38em;
+}
+
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
   background-color: transparent;

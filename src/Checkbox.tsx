@@ -14,8 +14,6 @@ export default class Checkbox extends React.Component<CheckboxParams> {
   }
 
   changed = () => {
-    // this.setState({ ...this.state, value: !this.state.value})
-    console.log('calling onChange')
     this.props.onChange(this.props.label, !this.props.value)
   }
 

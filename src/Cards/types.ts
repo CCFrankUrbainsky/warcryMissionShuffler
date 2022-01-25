@@ -11,6 +11,13 @@ export type Card = {
     type: CardType
 }
 
+export const DefaultCard : Card = {
+  index: 0,
+  front: '',
+  back: '',
+  type: 'terrain'
+} 
+
 export type Deck = {
     name: AvailableDeckName
     terrain: Card[]

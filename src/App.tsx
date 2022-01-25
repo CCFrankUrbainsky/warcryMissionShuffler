@@ -4,13 +4,13 @@ import './App.css'
 import './bootstrap-grid.min.css'
 import { Col, Container, Row } from 'react-bootstrap'
 import {
-  AvailableDeckName, getAvailableDecks, Card, FlipCard, Deck,
+  AvailableDeckName, getAvailableDecks, Card, FlipCard, Deck, CardsTest, CardType, DefaultCard,
 } from './Cards'
 import Checkbox from './Checkbox'
-import { CardsTest } from './Cards/CardsTest'
 
 const MAIN_DECK_KEY = 'selectedMainDecks'
 const TERRAIN_DECK_KEY = 'selectedTerrainDecks'
+
 function App() {
   const [selectedMainDecks, setSelectedMainDecks] = useState<AvailableDeckName[]>([])
   const [selectedTerrainDecks, setSelectedTerrainDecks] = useState<AvailableDeckName[]>([])
@@ -21,10 +21,10 @@ function App() {
   const [showAllCards, setShowAllCards] = useState<boolean>(false)
   const [selectedMainDeck, setSelectedMainDeck] = useState<Deck>()
   const [selectedTerrainDeck, setSelectedTerrainDeck] = useState<Deck>()
-  const [terrainCard, setTerrainCard] = useState<Card>()
-  const [deploymentCard, setDeploymentCard] = useState<Card>()
-  const [victoryCard, setVictoryCard] = useState<Card>()
-  const [twistCard, setTwistCard] = useState<Card>()
+  const [terrainCard, setTerrainCard] = useState<Card>(DefaultCard)
+  const [deploymentCard, setDeploymentCard] = useState<Card>(DefaultCard)
+  const [victoryCard, setVictoryCard] = useState<Card>(DefaultCard)
+  const [twistCard, setTwistCard] = useState<Card>(DefaultCard)
 
 
   useEffect(() => {
@@ -41,7 +41,7 @@ function App() {
       try {
         setSelectedTerrainDecks(JSON.parse(storedTerrainDecks))
       } catch {
-        console.error('Could not parse local storage main decks', storedMainDecks)
+        console.error('Could not parse local storage terrain decks', storedTerrainDecks)
       }
     }
   }, [])
@@ -96,6 +96,54 @@ function App() {
     setShowCards(true)
     setShuffling(true)
     setTimeout(() => { setShuffling(false) }, 50)
+  }
+
+  const shuffleCard = (type: CardType) => {
+    switch (type) {
+      case 'deployment': {
+        if (selectedMainDeck && O.isSome(selectedMainDeck.deployment)) {
+          const lastCard = deploymentCard.index
+          let newCard = deploymentCard
+          while (lastCard === newCard.index) {
+            newCard = selectRandom(selectedMainDeck.deployment.value)
+          }
+          setDeploymentCard(newCard)
+        }
+        return
+      }
+      case 'twist': {
+        if (selectedMainDeck && O.isSome(selectedMainDeck.twist)) {
+          const lastCard = twistCard.index
+          let newCard = twistCard
+          while (lastCard === newCard.index) {
+            newCard = selectRandom(selectedMainDeck.twist.value)
+          }
+          setTwistCard(newCard)
+        }
+        return
+      }
+      case 'victory': {
+        if (selectedMainDeck && O.isSome(selectedMainDeck.victory)) {
+          const lastCard = victoryCard.index
+          let newCard = victoryCard
+          while (lastCard === newCard.index) {
+            newCard = selectRandom(selectedMainDeck.victory.value)
+          }
+          setVictoryCard(newCard)
+        }
+        return
+      }
+      default: {
+        if (selectedTerrainDeck) {
+          const lastCard = terrainCard.index
+          let newCard = terrainCard
+          while (lastCard === newCard.index) {
+            newCard = selectRandom(selectedTerrainDeck.terrain)
+          }
+          setTerrainCard(newCard)
+        }
+      }
+    }
   }
 
   const checkSetup = () => {
@@ -194,18 +242,18 @@ function App() {
           </h2>
           <Row>
             <Col xs={12} md>
-              <FlipCard front={terrainCard?.front || ''} back={terrainCard?.back || ''} shuffle={shuffling} />
+              <FlipCard card={terrainCard} shuffle={shuffling} shuffleCard={shuffleCard} />
             </Col>
             <Col xs={12} md>
-              <FlipCard front={deploymentCard?.front || ''} back={deploymentCard?.back || ''} shuffle={shuffling} />
+              <FlipCard card={deploymentCard} shuffle={shuffling} shuffleCard={shuffleCard} />
             </Col>
           </Row>
           <Row>
             <Col xs={12} md>
-              <FlipCard front={victoryCard?.front || ''} back={victoryCard?.back || ''} shuffle={shuffling} />
+              <FlipCard card={victoryCard} shuffle={shuffling} shuffleCard={shuffleCard} />
             </Col>
             <Col xs={12} md>
-              <FlipCard front={twistCard?.front || ''} back={twistCard?.back || ''} shuffle={shuffling} />
+              <FlipCard card={twistCard} shuffle={shuffling} shuffleCard={shuffleCard} />
             </Col>
           </Row>
           <Row>

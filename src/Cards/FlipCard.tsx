@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Card, CardType } from './types'
 
 type CardParams = {
-  front: string
-  back: string
+  card: Card
   className?: string
   shuffle: boolean
+  shuffleCard: (type: CardType) => void
 }
 
-export const FlipCard = ({ front, back, className, shuffle }: CardParams) => {
+export const FlipCard = ({ card, className, shuffle, shuffleCard }: CardParams) => {
   const [flipped, setFlipped] = useState<boolean>(false)
 
   const flipCard = () => {
@@ -25,10 +25,11 @@ export const FlipCard = ({ front, back, className, shuffle }: CardParams) => {
     <div className={`flip-card ${flipped ? 'flipped' : ''} ${shuffle ? 'shuffled' : ''} ${className}`}>
       <div className="flip-card-inner">
         <div className="flip-card-front">
-          <img src={back} alt={back} onClick={flipCard} />
+          <img src={card.back} alt={card.back} onClick={flipCard} />
         </div>
         <div className="flip-card-back">
-          <img src={front} alt={front} onClick={flipCard} />
+          <img src={card.front} alt={card.front} onClick={flipCard} />
+          <button type='button' className='shuffle-button' title='Shuffle' onClick={() => { shuffleCard(card.type) }}>🔀</button>
         </div>
       </div>
     </div>
