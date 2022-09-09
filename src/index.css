@@ -3,8 +3,9 @@ body {
   font-family: rodchenko;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url( 'images/dark-background.jpg');
-  color: white;
+  /* background: url( 'images/dark-background.jpg'); */
+  background: url('images/warcry-bg.jpg');
+  color: black;
   font-size: 1.5rem;
 }
 
@@ -23,7 +24,7 @@ button.red {
 }
 
 button { 
-  background-color: rgb(218, 214, 204);
+  background-color: #a06b1b;
   background-image: url(images/button-background.jpg);
   background-size: cover;
   min-height: 70px;

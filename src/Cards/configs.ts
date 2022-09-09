@@ -2,6 +2,7 @@ export type AvailableDeckName =
 | 'Starter Set'
 | 'Red Harvest'
 | 'Catacombs'
+| 'Heart of Ghur'
 | 'Souldrain Forest'
 | 'Souldrain Forest + Starter Set'
 | 'Corpsewrack Mausoleum'
@@ -120,6 +121,36 @@ export const deckConfig : DeckConfig[] = [
       filetype: '.png',
     },
   }, {
+    name: 'Heart of Ghur',
+    terrain: {
+      count: 24,
+      baseName: 'HoGTerrain',
+      folder: 'terrain/ghur/',
+      back: 'back',
+      filetype: '.png',
+    },
+    deployment: {
+      count: 12,
+      baseName: 'ghur-deployment-',
+      folder: 'deployment/ghur/',
+      back: 'back',
+      filetype: '.png',
+    },
+    victory: {
+      count: 12,
+      baseName: '',
+      folder: 'victory/ghur/',
+      back: 'back',
+      filetype: '.jpg',
+    },
+    twist: {
+      count: 12,
+      baseName: '',
+      folder: 'twist/ghur/',
+      back: 'back',
+      filetype: '.png',
+    },
+  },{
     name: 'Souldrain Forest',
     terrain: {
       count: 24,

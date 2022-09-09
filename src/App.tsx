@@ -161,7 +161,7 @@ function App() {
       <Row>
         <Col xs={0} md={4} />
         <Col xs={12} md={4}>
-          <img src="warcry-logo.png" alt="Warcry logo" style={{ maxWidth: '100%' }} />
+          <img src="warcry-logo.png" alt="Warcry logo" style={{ maxWidth: '100%', margin: '10px 0 25px' }} />
           <h1 style={{ textAlign: 'center', marginTop: '-0.5em' }}>Mission Shuffler</h1>
 
         </Col>
