@@ -2,6 +2,8 @@ export type AvailableDeckName =
   | "Starter Set"
   | "Red Harvest"
   | "Catacombs"
+  | "Bloodhunt"
+  | "Nightmare Quest"
   | "Heart of Ghur"
   | "Sundered Fate + Heart of Ghur"
   | "Sundered Fate"
@@ -33,6 +35,72 @@ export type DeckConfig = {
 
 export const deckConfig: DeckConfig[] = [
   {
+    name: "Bloodhunt",
+    terrain: {
+      count: 12,
+      startIndex: 7,
+      baseName: "Bloodhunt0",
+      folder: "terrain/bloodhunt/",
+      back: "back",
+      filetype: ".png",
+    },
+    deployment: {
+      count: 6,
+      baseName: "Bloodhunt00",
+      folder: "deployment/bloodhunt/",
+      back: "back",
+      filetype: ".png",
+    },
+    victory: {
+      count: 6,
+      startIndex: 25,
+      baseName: "Bloodhunt0",
+      folder: "victory/bloodhunt/",
+      back: "back",
+      filetype: ".png",
+    },
+    twist: {
+      count: 6,
+      startIndex: 19,
+      baseName: "Bloodhunt0",
+      folder: "twist/bloodhunt/",
+      back: "back",
+      filetype: ".png",
+    },
+  },
+  { 
+    name: "Nightmare Quest",
+    terrain: {
+      count: 12,
+      baseName: "",
+      folder: "terrain/nightmareQuest/",
+      back: "back",
+      filetype: ".png",
+    },
+    deployment: {
+      count: 6,
+      baseName: "",
+      folder: "deployment/nightmareQuest/",
+      back: "back",
+      filetype: ".png",
+    },
+    victory: {
+      count: 6,
+
+      baseName: "0",
+      folder: "victory/nightmareQuest/",
+      back: "back",
+      filetype: ".png",
+    },
+    twist: {
+      count: 6,
+      baseName: "",
+      folder: "twist/nightmareQuest/",
+      back: "back",
+      filetype: ".png",
+    },
+  },
+  {
     name: "Heart of Ghur",
     terrain: {
       count: 24,
@@ -59,6 +127,37 @@ export const deckConfig: DeckConfig[] = [
       count: 12,
       baseName: "",
       folder: "twist/ghur/",
+      back: "back",
+      filetype: ".png",
+    },
+  },
+  {
+    name: "Red Harvest",
+    terrain: {
+      count: 12,
+      baseName: "WarcryRHTerrain",
+      folder: "terrain/varaniteMines/",
+      back: "back",
+      filetype: ".png",
+    },
+    deployment: {
+      count: 12,
+      baseName: "WarcryRHDeployment",
+      folder: "deployment/redHarvest/",
+      back: "back",
+      filetype: ".png",
+    },
+    victory: {
+      count: 12,
+      baseName: "WarcryRHVictory",
+      folder: "victory/redHarvest/",
+      back: "back",
+      filetype: ".png",
+    },
+    twist: {
+      count: 12,
+      baseName: "WarcryRHTwist",
+      folder: "twist/redHarvest/",
       back: "back",
       filetype: ".png",
     },
@@ -156,6 +255,7 @@ export const deckConfig: DeckConfig[] = [
       filetype: ".png",
     },
   },
+
   {
     name: "Sundered Fate + Heart of Ghur",
     terrain: {
