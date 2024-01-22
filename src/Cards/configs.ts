@@ -3,6 +3,7 @@ export type AvailableDeckName =
   | "Red Harvest"
   | "Catacombs"
   | "Bloodhunt"
+  | "Scales of Talaxis"
   | "Nightmare Quest"
   | "Heart of Ghur"
   | "Sundered Fate + Heart of Ghur"
@@ -34,6 +35,37 @@ export type DeckConfig = {
 };
 
 export const deckConfig: DeckConfig[] = [
+  {
+    name: "Scales of Talaxis",
+    terrain: {
+      count: 18,
+      baseName: "",
+      folder: "terrain/scalesOfTalaxis/",
+      back: "back",
+      filetype: ".jpg",
+    },
+    deployment: {
+      count: 12,
+      baseName: "",
+      folder: "deployment/scalesOfTalaxis/",
+      back: "back",
+      filetype: ".jpg",
+    },
+    victory: {
+      count: 12,
+      baseName: "",
+      folder: "victory/scalesOfTalaxis/",
+      back: "back",
+      filetype: ".jpg",
+    },
+    twist: {
+      count: 12,
+      baseName: "",
+      folder: "twist/scalesOfTalaxis/",
+      back: "back",
+      filetype: ".jpg",
+    },
+  },
   {
     name: "Bloodhunt",
     terrain: {
